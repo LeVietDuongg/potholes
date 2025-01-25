@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <shape>
+                <solid android:color="#1a7a1a" /> <!-- Màu nền mặc định -->
+                <corners android:radius="10dp" /> <!-- Độ bo tròn góc -->
+                <stroke
+                    android:width="0.5dp"
+                    android:color="#1a7a1a" /> <!-- Màu và độ dày của viền mặc định -->
+            </shape>
+        </shape>
+    </item>
+    <!-- Trạng thái mặc định -->
+    <item>
+        <shape>
+            <solid android:color="#1a7a1a" /> <!-- Màu nền mặc định -->
+            <corners android:radius="10dp" /> <!-- Độ bo tròn góc -->
+            <stroke
+                android:width="0.5dp"
+                android:color="#1a7a1a" /> <!-- Màu và độ dày của viền mặc định -->
+        </shape>
+    </item>
+</selector>

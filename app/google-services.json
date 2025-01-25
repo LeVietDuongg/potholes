@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "887282655078",
+    "firebase_url": "https://detectapplication-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "detectapplication",
+    "storage_bucket": "detectapplication.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887282655078:android:306920bfadf3ce6e8c72a7",
+        "android_client_info": {
+          "package_name": "com.example.detectapplication2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQvvqJwXeM-dmWvHCnWZL2MaIrxVXv4LY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

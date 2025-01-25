@@ -1,0 +1,176 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <!-- Header with User Name -->
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_only_rounded"
+        android:gravity="center"
+        android:padding="30dp"
+        android:text="Hello (Username)"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+
+    <!-- Circle Progress with Distance -->
+    <RelativeLayout
+        android:id="@+id/circle_progress_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/user_name"
+        android:layout_marginTop="20dp">
+
+        <!-- Placeholder for circular progress indicator -->
+        <ImageView
+            android:id="@+id/circle_progress"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="Distance Circle"
+            android:src="@drawable/circle" />
+
+        <!-- Distance Text -->
+        <TextView
+            android:id="@+id/distance_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="8.30"
+            android:textColor="#00E5FF"
+            android:textSize="32sp"
+            android:textStyle="bold"/>
+
+        <!-- "TODAY KM" Label -->
+        <TextView
+            android:id="@+id/today_km_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/distance_value"
+            android:layout_centerHorizontal="true"
+            android:text="TODAY KM"
+            android:textColor="#00E5FF"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/thanhchan1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_below="@+id/circle_progress_container"
+        android:background="#d3d3d3"/>
+
+    <!-- Duration and Average Speed Information -->
+    <LinearLayout
+        android:id="@+id/icon_clendar_map"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/thanhchan1"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <!-- Calendar Icon -->
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="100dp"
+            android:contentDescription="Calendar"
+            android:src="@drawable/baseline_calendar_month_24" />
+
+        <!-- Location Icon -->
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="100dp"
+            android:contentDescription="Location"
+            android:src="@drawable/map" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/thongtinchitiet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon_clendar_map"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="25dp">
+
+        <!-- Duration Info -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DURATION"
+                android:textColor="#141313"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="30:48 min"
+                android:textColor="#121111"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <!-- Average Speed Info -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:id="@+id/phanthan"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AVG.SPEED"
+                android:textColor="#242222"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="60 km/h"
+                android:textColor="#161212"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bottomNavigationView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="@color/black"-->
+<!--        app:itemIconTint="@color/white"-->
+<!--        app:itemTextColor="@color/white"-->
+<!--        app:menu="@menu/menu_bottom_nav" />-->
+
+
+
+
+
+
+</RelativeLayout>
