@@ -119,7 +119,7 @@ public class SettingFragment extends Fragment {
                 getActivity().finish();
 
                 // Thông báo thành công
-                Toast.makeText(getContext(), "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(R.string.logout_success), Toast.LENGTH_SHORT).show();
             }
         });
 

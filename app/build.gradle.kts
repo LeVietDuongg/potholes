@@ -1,4 +1,3 @@
-
 plugins {
     id("com.android.application")
     id("com.google.gms.google-services")
@@ -38,8 +37,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     buildToolsVersion = "35.0.0"
 }

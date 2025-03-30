@@ -826,6 +826,66 @@ public class MapFragment extends Fragment {
         }
     }
 
+    private void showNotification(String title, String message) {
+        if (getActivity() == null) return;
+        
+        NotificationManager notificationManager = 
+                (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        
+        // Create notification channel for Android 8.0+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    "pothole_channel",
+                    "Pothole Alerts",
+                    NotificationManager.IMPORTANCE_HIGH);
+            notificationManager.createNotificationChannel(channel);
+        }
+        
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "pothole_channel")
+                .setSmallIcon(R.drawable.ic_warning)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true);
+                
+        notificationManager.notify(1, builder.build());
+    }
+
+    private void startLocationUpdates() {
+        if (getActivity() == null || fusedLocationClient == null) return;
+        
+        if (ActivityCompat.checkSelfPermission(getActivity(), 
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        
+        LocationRequest locationRequest = LocationRequest.create()
+                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                .setInterval(5000)
+                .setFastestInterval(2000);
+                
+        LocationCallback locationCallback = new LocationCallback() {
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+                if (locationResult == null) return;
+                
+                Location location = locationResult.getLastLocation();
+                if (location != null) {
+                    currentLocation = new GeoCoordinates(location.getLatitude(), location.getLongitude());
+                    updateLocationMarker(currentLocation);
+                }
+            }
+        };
+        
+        fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
+    }
+
+    private void stopLocationUpdates() {
+        if (fusedLocationClient != null) {
+            fusedLocationClient.removeLocationUpdates(new LocationCallback() {});
+        }
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -865,9 +925,6 @@ public class MapFragment extends Fragment {
 
     @Override
     public void onLowMemory() {
-        if (mapView != null) {
-            mapView.onLowMemory();
-        }
         super.onLowMemory();
     }
 
