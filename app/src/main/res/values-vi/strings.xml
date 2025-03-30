@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Phát Hiện Ổ Gà</string>
+    
+    <!-- General -->
+    <string name="hello_blank_fragment">Xin chào fragment trống</string>
+    
+    <!-- Navigation -->
+    <string name="home">Trang Chủ</string>
+    <string name="map">Bản Đồ</string>
+    <string name="settings">Cài Đặt</string>
+    
+    <!-- Map Fragment -->
+    <string name="enter_location">Nhập địa điểm</string>
+    <string name="search">Tìm Kiếm</string>
+    <string name="estimated_time">Thời gian ước tính: %1$s</string>
+    
+    <!-- Settings Fragment -->
+    <string name="account">Tài Khoản</string>
+    <string name="edit_profile">Chỉnh Sửa Hồ Sơ</string>
+    <string name="language">Ngôn Ngữ</string>
+    <string name="english">Tiếng Anh</string>
+    <string name="vietnamese">Tiếng Việt</string>
+    <string name="app_settings">Cài Đặt Ứng Dụng</string>
+    <string name="policies">Chính Sách</string>
+    <string name="account_actions">Thao Tác Tài Khoản</string>
+    <string name="logout">Đăng Xuất</string>
+    <string name="logout_success">Đăng xuất thành công</string>
+</resources>

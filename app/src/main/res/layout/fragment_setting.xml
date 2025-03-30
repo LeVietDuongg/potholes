@@ -7,194 +7,126 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SettingFragment">
 
-
-    <!--xay cardview -->
-    <androidx.cardview.widget.CardView
-        android:layout_gravity="bottom"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="700dp"
-        android:layout_alignParentBottom="true"
-        app:cardCornerRadius="28dp"
-        android:layout_marginBottom="-20dp"
-        android:id="@+id/card_view">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="28dp">
-<!--========================================================================-->
+            android:padding="16dp">
+
+            <!-- Profile Section -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Account Setting"
+                android:text="Account"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                android:fontFamily="sans-serif-medium"/>
-            <androidx.cardview.widget.CardView
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="25sp"
-                android:background="@color/background_color">
-                <TextView
-                    android:id="@+id/tv_edit_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Edit Profile"
-                    android:textStyle="normal"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:paddingLeft="15dp"
-                    android:onClick="onclick"
-                    android:drawablePadding="30sp"
-                    android:drawableStart="@drawable/persion_icon"
-                    android:fontFamily="sans-serif-medium"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Security"
-                    android:textStyle="normal"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:drawablePadding="30sp"
-                    android:paddingLeft="15dp"
-                    android:layout_marginTop="40dp"
-                    android:drawableStart="@drawable/security_icon"
-                    android:fontFamily="sans-serif-medium"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Notification"
-                    android:textStyle="normal"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:paddingLeft="15dp"
-                    android:drawablePadding="30sp"
-                    android:layout_marginTop="80dp"
-                    android:drawableStart="@drawable/notification_icon"
-                    android:fontFamily="sans-serif-medium"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Privacy"
-                    android:textStyle="normal"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:paddingLeft="15dp"
-                    android:drawablePadding="30sp"
-                    android:layout_marginTop="120dp"
-                    android:drawableStart="@drawable/privacy_icon"
-                    android:fontFamily="sans-serif-medium"/>
-            </androidx.cardview.widget.CardView>
+                android:textColor="#1a7a1a"
+                android:layout_marginBottom="8dp"/>
 
-<!--========================================================================-->
             <TextView
-                android:layout_marginTop="5dp"
+                android:id="@+id/tv_edit_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Support &amp; About"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                android:fontFamily="sans-serif-medium"/>
-            <androidx.cardview.widget.CardView
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="25sp"
-                android:background="@color/background_color">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Help &amp; Support"
-                    android:textStyle="normal"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:paddingLeft="15dp"
-                    android:drawablePadding="30sp"
-                    android:drawableStart="@drawable/help_icon"
-                    android:fontFamily="sans-serif-medium"/>
-                <TextView
-                    android:id="@+id/tv_policies"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Terms &amp; Policies"
-                    android:textStyle="normal"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:drawablePadding="30sp"
-                    android:paddingLeft="15dp"
-                    android:layout_marginTop="40dp"
-                    android:drawableStart="@drawable/security_icon"
-                    android:fontFamily="sans-serif-medium"/>
+                android:text="Edit Profile"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:background="@drawable/bgbuttongoogle"
+                android:drawableStart="@drawable/persion_icon"
+                android:drawablePadding="16dp"
+                android:layout_marginBottom="12dp"/>
 
-
-            </androidx.cardview.widget.CardView>
-<!--===========================================================================-->
+            <!-- Language Section -->
             <TextView
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Actions"
+                android:text="Language"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                android:fontFamily="sans-serif-medium"/>
-            <androidx.cardview.widget.CardView
-                android:layout_marginTop="15dp"
+                android:textColor="#1a7a1a"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+                
+            <LinearLayout
+                android:id="@+id/language_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="25sp"
-                android:background="@color/background_color">
-                <TextView
+                android:orientation="vertical"
+                android:background="@drawable/bgbuttongoogle"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+                
+                <RadioGroup
+                    android:id="@+id/language_radio_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Report Problem"
-                    android:textStyle="normal"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:paddingLeft="15dp"
-                    android:drawablePadding="30sp"
-                    android:drawableStart="@drawable/report_problem_icon"
-                    android:fontFamily="sans-serif-medium"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Add Account"
-                    android:textStyle="normal"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:drawablePadding="30sp"
-                    android:paddingLeft="15dp"
-                    android:layout_marginTop="40dp"
-                    android:drawableStart="@drawable/add_user"
-                    android:fontFamily="sans-serif-medium"/>
-                <TextView
-                    android:id="@+id/txt_logout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Log out"
-                    android:onClick="onclick"
-                    android:textStyle="normal"
-                    android:textSize="20sp"
-                    android:paddingLeft="15dp"
-                    android:drawablePadding="30sp"
-                    android:layout_marginTop="80dp"
-                    android:textColor="@color/red"
-                    android:drawableTint="@color/red"
-                    android:drawableStart="@drawable/logout_icon"
-                    android:paddingBottom="5dp"
-                    android:fontFamily="sans-serif-medium"/>
-            </androidx.cardview.widget.CardView>
-            <View
+                    android:orientation="vertical">
+                    
+                    <RadioButton
+                        android:id="@+id/radio_english"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="English"
+                        android:padding="8dp"
+                        android:checked="true"/>
+                        
+                    <RadioButton
+                        android:id="@+id/radio_vietnamese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vietnamese"
+                        android:padding="8dp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- App Settings Section -->
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="1000dp"/>
+                android:layout_height="wrap_content"
+                android:text="App Settings"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#1a7a1a"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tv_policies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Policies"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:background="@drawable/bgbuttongoogle"
+                android:drawableStart="@drawable/privacy_icon"
+                android:drawablePadding="16dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Account Actions Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Account Actions"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#1a7a1a"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/txt_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:textSize="16sp"
+                android:textColor="#FF0000"
+                android:padding="12dp"
+                android:background="@drawable/bgbuttongoogle"
+                android:drawableStart="@drawable/logout_icon"
+                android:drawablePadding="16dp"/>
+
         </LinearLayout>
-        </ScrollView>
-    </androidx.cardview.widget.CardView>
+    </ScrollView>
 </FrameLayout>

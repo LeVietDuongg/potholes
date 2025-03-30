@@ -1,5 +1,28 @@
 <resources>
-    <string name="app_name">detectApplication2</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Pothole Detection</string>
+    
+    <!-- General -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    
+    <!-- Navigation -->
+    <string name="home">Home</string>
+    <string name="map">Map</string>
+    <string name="settings">Settings</string>
+    
+    <!-- Map Fragment -->
+    <string name="enter_location">Enter location</string>
+    <string name="search">Search</string>
+    <string name="estimated_time">Estimated time: %1$s</string>
+    
+    <!-- Settings Fragment -->
+    <string name="account">Account</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="vietnamese">Vietnamese</string>
+    <string name="app_settings">App Settings</string>
+    <string name="policies">Policies</string>
+    <string name="account_actions">Account Actions</string>
+    <string name="logout">Logout</string>
+    <string name="logout_success">Logout successful</string>
 </resources>

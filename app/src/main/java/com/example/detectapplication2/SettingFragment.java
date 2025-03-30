@@ -2,23 +2,33 @@ package com.example.detectapplication2;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+
+import java.util.Locale;
 
 public class SettingFragment extends Fragment {
     TextView txt_logout;
     TextView tv_edit_profile, tv_policies;
     private SharedPreferences sharedPreferences;
+    private RadioGroup languageRadioGroup;
+    private RadioButton radioEnglish, radioVietnamese;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final String PREFS_NAME = "LanguagePrefs";
+    private static final String LANGUAGE_KEY = "language";
 
     private String mParam1;
     private String mParam2;
@@ -54,6 +64,42 @@ public class SettingFragment extends Fragment {
         txt_logout = view.findViewById(R.id.txt_logout);
         tv_edit_profile = view.findViewById(R.id.tv_edit_profile);
         tv_policies = view.findViewById(R.id.tv_policies);
+        
+        // Initialize language selection UI
+        languageRadioGroup = view.findViewById(R.id.language_radio_group);
+        radioEnglish = view.findViewById(R.id.radio_english);
+        radioVietnamese = view.findViewById(R.id.radio_vietnamese);
+
+        // Load saved language preference
+        if (getActivity() != null) {
+            sharedPreferences = getActivity().getSharedPreferences(PREFS_NAME, getActivity().MODE_PRIVATE);
+            String savedLanguage = sharedPreferences.getString(LANGUAGE_KEY, "en");
+            
+            // Set the correct radio button based on saved preference
+            if (savedLanguage.equals("vi")) {
+                radioVietnamese.setChecked(true);
+            } else {
+                radioEnglish.setChecked(true);
+            }
+        }
+
+        // Handle language change
+        languageRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            String languageCode;
+            if (checkedId == R.id.radio_vietnamese) {
+                languageCode = "vi";
+            } else {
+                languageCode = "en";
+            }
+            
+            // Save language preference
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(LANGUAGE_KEY, languageCode);
+            editor.apply();
+            
+            // Change app language
+            setAppLanguage(languageCode);
+        });
 
         txt_logout.setOnClickListener(v -> {
             if (getActivity() != null) {
@@ -88,5 +134,30 @@ public class SettingFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void setAppLanguage(String languageCode) {
+        if (getActivity() == null) return;
+        
+        Locale locale = new Locale(languageCode);
+        Locale.setDefault(locale);
+        
+        Resources resources = getActivity().getResources();
+        Configuration config = resources.getConfiguration();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        
+        config.setLocale(locale);
+        
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            getActivity().createConfigurationContext(config);
+        }
+        
+        resources.updateConfiguration(config, metrics);
+        
+        // Restart activity to apply language change
+        Intent refresh = new Intent(getActivity(), MainActivity2.class);
+        refresh.putExtra("fragment", "setting");
+        getActivity().finish();
+        startActivity(refresh);
     }
 }

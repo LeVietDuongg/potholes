@@ -124,7 +124,9 @@ public class MapFragment extends Fragment {
     private boolean trafficDisabled;
     private final List<MapPolyline> mapPolylines = new ArrayList<>();
     private List<Pothole> potholesOnRoute = new ArrayList<>();
-
+    private Handler notificationHandler;
+    private Runnable notificationRunnable;
+    private boolean isFragmentActive = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -778,74 +780,108 @@ public class MapFragment extends Fragment {
 
 
     private void monitorPotholesOnRoute(Route route) {
-        LocationManager locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
-        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            showToast("Location permission not granted.");
-            return;
+        if (notificationHandler != null) {
+            notificationHandler.removeCallbacks(notificationRunnable);
         }
+        
+        notificationHandler = new Handler(Looper.getMainLooper());
+        final long[] lastNotificationTime = {0};
 
-        Handler handler = new Handler(Looper.getMainLooper());
-        final long[] lastNotificationTime = {0}; // Store the last notification time
-
-        Runnable notificationRunnable = new Runnable() {
+        notificationRunnable = new Runnable() {
             @Override
             public void run() {
+                if (!isFragmentActive) return;
+                
                 if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    showToast("Location permission not granted.");
                     return;
                 }
 
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, location -> {
-                    GeoCoordinates currentCoordinates = new GeoCoordinates(location.getLatitude(), location.getLongitude());
-                    Iterator<Pothole> iterator = potholesOnRoute.iterator();
+                if (currentLocation != null) {
+                    checkNearbyPotholes(currentLocation, lastNotificationTime);
+                }
 
-                    long currentTime = System.currentTimeMillis();
-
-                    while (iterator.hasNext()) {
-                        Pothole pothole = iterator.next();
-                        GeoCoordinates potholeCoordinates = new GeoCoordinates(pothole.getLatitude(), pothole.getLongitude());
-                        double distance = distanceBetween(currentCoordinates, potholeCoordinates);
-
-                        if (isPotholeExactlyOnRoute(route.getGeometry().vertices, potholeCoordinates) && distance <= 400 && (currentTime - lastNotificationTime[0] >= 5000)) { // At least 5 seconds apart
-                            showNotification("Pothole Alert", "Approaching a " + pothole.getLevel() + " pothole! Distance: " + distance + "m");
-                            lastNotificationTime[0] = currentTime;
-                        }
-
-                        if (distance < 50) {
-                            // Remove pothole from the list once passed
-                            iterator.remove();
-                            Log.d(TAG, "Pothole passed and removed: " + pothole.getLevel());
-                        }
-                    }
-                });
-
-                // Schedule the next check in 5 seconds
-                handler.postDelayed(this, 5000);
+                // Schedule the next check
+                if (isFragmentActive) {
+                    notificationHandler.postDelayed(this, 5000);
+                }
             }
         };
-
-        // Start checking for notifications
-        handler.post(notificationRunnable);
+        
+        // Start checking for pothole notifications
+        notificationHandler.post(notificationRunnable);
     }
 
-    // Display Notification
-    private void showNotification(String title, String message) {
-        NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
-
-        // Create Notification Channel (for Android 8.0 and above)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("POTHOLE_ALERTS", "Pothole Alerts", NotificationManager.IMPORTANCE_HIGH);
-            notificationManager.createNotificationChannel(channel);
+    private void checkNearbyPotholes(GeoCoordinates currentLocation, long[] lastNotificationTime) {
+        long currentTime = System.currentTimeMillis();
+        
+        for (Pothole pothole : potholesOnRoute) {
+            GeoCoordinates potholeCoordinates = new GeoCoordinates(pothole.getLatitude(), pothole.getLongitude());
+            double distance = distanceBetween(currentLocation, potholeCoordinates);
+            
+            if (distance <= 200 && (currentTime - lastNotificationTime[0] >= 10000)) {
+                showNotification("Pothole Alert", "Approaching a " + pothole.getLevel() + " pothole! Distance: " + Math.round(distance) + "m");
+                lastNotificationTime[0] = currentTime;
+                break; // Show only one notification at a time
+            }
         }
-
-        Notification notification = new NotificationCompat.Builder(getContext(), "POTHOLE_ALERTS")
-                .setSmallIcon(R.drawable.ic_warning) // Set icon
-                .setContentTitle(title)
-                .setContentText(message)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .build();
-
-        notificationManager.notify((int) System.currentTimeMillis(), notification); // Unique identifier
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        isFragmentActive = true;
+        
+        if (mapView != null) {
+            mapView.onResume();
+        }
+        
+        startLocationUpdates();
+    }
+
+    @Override
+    public void onPause() {
+        if (mapView != null) {
+            mapView.onPause();
+        }
+        
+        stopLocationUpdates();
+        isFragmentActive = false;
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (notificationHandler != null && notificationRunnable != null) {
+            notificationHandler.removeCallbacks(notificationRunnable);
+        }
+        
+        if (mapView != null) {
+            mapView.onDestroy();
+            mapView = null;
+        }
+        
+        super.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        if (mapView != null) {
+            mapView.onLowMemory();
+        }
+        super.onLowMemory();
+    }
+
+    @Override
+    public void onDestroyView() {
+        clearSearchMarkers();
+        clearPolylines();
+        
+        if (notificationHandler != null && notificationRunnable != null) {
+            notificationHandler.removeCallbacks(notificationRunnable);
+        }
+        
+        stopLocationUpdates();
+        isFragmentActive = false;
+        super.onDestroyView();
+    }
 }
