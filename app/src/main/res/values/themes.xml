@@ -3,7 +3,26 @@
     <style name="Base.Theme.DetectApplication2" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:textViewStyle">@style/MontserratTextViewStyle</item>
+        <item name="buttonStyle">@style/MontserratButtonStyle</item>
     </style>
 
     <style name="Theme.DetectApplication2" parent="Base.Theme.DetectApplication2" />
+
+    <style name="MontserratTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="MontserratButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="MontserratSemiBoldTextStyle">
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+        <item name="fontFamily">@font/montserrat_semibold</item>
+    </style>
 </resources>
