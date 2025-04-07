@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Trạng thái khi được nhấn -->
+    <item android:drawable="@drawable/bg_buttonintro_pressed" android:state_pressed="true" />
+    
+    <!-- Hiệu ứng khi được focus -->
+    <item android:drawable="@drawable/bg_buttonintro_pressed" android:state_focused="true" />
+    
+    <!-- Trạng thái mặc định -->
+    <item android:drawable="@drawable/bg_buttonintro" />
+</selector> 
