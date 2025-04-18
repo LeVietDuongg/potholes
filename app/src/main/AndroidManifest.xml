@@ -31,6 +31,9 @@
             android:name=".MainActivity2"
             android:exported="false" />
         <activity
+            android:name=".SplashActivity"
+            android:exported="false" />
+        <activity
             android:name=".OtpActivity"
             android:exported="false" />
         <activity
