@@ -59,11 +59,11 @@ public class HomeFragment extends Fragment {
 
         imageViewchart = view.findViewById(R.id.imageViewchart);
 
-        temperatureText = view.findViewById(R.id.temperature_text);
-        humidityText = view.findViewById(R.id.humidity_text);
-        conditionText = view.findViewById(R.id.condition_text);
-        cityInput = view.findViewById(R.id.city_input);
-        searchButton = view.findViewById(R.id.search_button);
+//        temperatureText = view.findViewById(R.id.temperature_text);
+//        humidityText = view.findViewById(R.id.humidity_text);
+//        conditionText = view.findViewById(R.id.condition_text);
+//        cityInput = view.findViewById(R.id.city_input);
+//        searchButton = view.findViewById(R.id.search_button);
 
         // Set click listeners for images
         image1.setOnClickListener(v -> startActivity(new Intent(getActivity(), PothethonListActivity.class)));
@@ -93,71 +93,71 @@ public class HomeFragment extends Fragment {
         });
 
         // Set up search button click listener
-        searchButton.setOnClickListener(v -> {
-            String city = cityInput.getText().toString().trim();
-            if (!city.isEmpty()) {
-                new GetWeatherTask(city).execute();
-            }
-        });
+//        searchButton.setOnClickListener(v -> {
+//            String city = cityInput.getText().toString().trim();
+//            if (!city.isEmpty()) {
+//                new GetWeatherTask(city).execute();
+//            }
+//        });
 
         // Fetch weather for Saigon on startup
-        new GetWeatherTask("Binh Duong").execute();
+//        new GetWeatherTask("Binh Duong").execute();
 
         fetchPotholesData(multilinePotholes);
 
         return view;
     }
 
-    private class GetWeatherTask extends AsyncTask<Void, Void, String> {
-        private String city;
+//    private class GetWeatherTask extends AsyncTask<Void, Void, String> {
+//        private String city;
+//
+//        public GetWeatherTask(String city) {
+//            this.city = city;
+//        }
+//
+//        @Override
+//        protected String doInBackground(Void... voids) {
+//            String response = "";
+//            try {
+//                URL url = new URL("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + API_KEY + "&units=metric");
+//                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//                connection.setRequestMethod("GET");
+//                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+//                String line;
+//                while ((line = reader.readLine()) != null) {
+//                    response += line;
+//                }
+//                reader.close();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            return response;
+//        }
 
-        public GetWeatherTask(String city) {
-            this.city = city;
-        }
-
-        @Override
-        protected String doInBackground(Void... voids) {
-            String response = "";
-            try {
-                URL url = new URL("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + API_KEY + "&units=metric");
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("GET");
-                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    response += line;
-                }
-                reader.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return response;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            try {
-                JSONObject jsonObject = new JSONObject(result);
-                JSONObject main = jsonObject.getJSONObject("main");
-                double temp = main.getDouble("temp");
-                int humidity = main.getInt("humidity");
-
-                String weatherCondition = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
-
-                temperatureText.setText("Temperature: " + temp + " °C");
-                humidityText.setText("Humidity: " + humidity + "%");
-                conditionText.setText("Condition: " + weatherCondition);
-
-                // kiểm tra thời tiết xấu thì hiển thị thông báo ra đường làm gì
-                if (weatherCondition.contains("rain") || weatherCondition.contains("storm") || weatherCondition.contains("snow")) {
-                    Toast.makeText(getActivity(), "Thời tiết đang xấu bạn nên hạn chế ra ngoài", Toast.LENGTH_LONG).show();
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
+//        @Override
+//        protected void onPostExecute(String result) {
+//            try {
+//                JSONObject jsonObject = new JSONObject(result);
+//                JSONObject main = jsonObject.getJSONObject("main");
+//                double temp = main.getDouble("temp");
+//                int humidity = main.getInt("humidity");
+//
+//                String weatherCondition = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
+//
+//                temperatureText.setText("Temperature: " + temp + " °C");
+//                humidityText.setText("Humidity: " + humidity + "%");
+//                conditionText.setText("Condition: " + weatherCondition);
+//
+//                // kiểm tra thời tiết xấu thì hiển thị thông báo ra đường làm gì
+//                if (weatherCondition.contains("rain") || weatherCondition.contains("storm") || weatherCondition.contains("snow")) {
+//                    Toast.makeText(getActivity(), "Thời tiết đang xấu bạn nên hạn chế ra ngoài", Toast.LENGTH_LONG).show();
+//                }
+//
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
     private void fetchPotholesData(TextView multilinePotholes) {
         DatabaseReference potholesRef = FirebaseDatabase.getInstance().getReference("potholes");
