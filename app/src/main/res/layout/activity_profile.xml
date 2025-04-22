@@ -23,7 +23,7 @@
             android:layout_gravity="bottom"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/montserrat_semibold"
             android:layout_marginBottom="15dp"
             android:text="Your Profile"/>
     </androidx.cardview.widget.CardView>
@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:text="Back"
             android:textStyle="bold"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/montserrat_semibold"
             android:textColor="@color/white"
             android:background="@drawable/bgbutton"/>
 
@@ -152,7 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/bgbutton"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/montserrat_semibold"
             android:text="Edit Profile"
             android:textColor="@color/white"
             android:textStyle="bold" />
