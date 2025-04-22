@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -38,6 +39,12 @@ public class MainActivity2 extends AppCompatActivity {
         handleFragmentIntent();
     }
 
+    // Method to handle onClick="clickmeok" from the layout
+    public void clickmeok(View view) {
+        Intent intent = new Intent(this, PothethonListActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -62,6 +69,8 @@ public class MainActivity2 extends AppCompatActivity {
                 replaceFragment(new HomeFragment());
             } else if (item.getItemId() == R.id.map) {
                 replaceFragment(new MapFragment());
+            } else if (item.getItemId() == R.id.weather) {
+                replaceFragment(new WeatherFragment());
             } else if (item.getItemId() == R.id.setting) {
                 replaceFragment(new SettingFragment());
             }
@@ -76,6 +85,9 @@ public class MainActivity2 extends AppCompatActivity {
         if (fragment != null && fragment.equals("setting")) {
             replaceFragment(new SettingFragment());
             binding.bottomNavigationView.setSelectedItemId(R.id.setting);
+        } else if (fragment != null && fragment.equals("weather")) {
+            replaceFragment(new WeatherFragment());
+            binding.bottomNavigationView.setSelectedItemId(R.id.weather);
         } else {
             replaceFragment(new HomeFragment());  // Default fragment is HomeFragment
             binding.bottomNavigationView.setSelectedItemId(R.id.home);
