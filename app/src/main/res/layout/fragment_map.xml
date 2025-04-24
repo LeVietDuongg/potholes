@@ -1,54 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MapFragment">
 
-    <com.here.sdk.mapview.MapView
-        android:id="@+id/map_view"
+    <!-- Map container with a ViewStub for lazy loading -->
+    <ViewStub
+        android:id="@+id/map_stub"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout="@layout/map_layout" />
 
-    <LinearLayout
+    <!-- Search bar and button container -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp"
-        android:background="@color/white"
-        android:layout_gravity="top">
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="#FFFFFF"
+        android:layout_margin="16dp"
+        app:cardElevation="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <EditText
                 android:id="@+id/location_search"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Enter location" />
+                android:hint="Search location"
+                android:padding="12dp"
+                android:background="@null"
+                android:inputType="text"
+                android:imeOptions="actionSearch"/>
 
             <Button
                 android:id="@+id/search_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Search" />
+                android:text="Search"
+                android:textAllCaps="false"/>
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-        <ListView
-            android:id="@+id/search_results_list"
+    <!-- Search results list -->
+    <ListView
+        android:id="@+id/search_results_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="#FFFFFF"
+        android:visibility="gone"/>
+
+    <!-- Route details card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
+
+        <TextView
+            android:id="@+id/estimated_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone" />
-    </LinearLayout>
+            android:padding="12dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+    </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/estimated_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_gravity="top|end"
-        android:visibility="gone" />
 </FrameLayout>
