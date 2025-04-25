@@ -10,6 +10,11 @@
         android:title="Map" />
 
     <item
+        android:id="@+id/leaderboard"
+        android:icon="@drawable/medal_gold"
+        android:title="Ranking" />
+
+    <item
         android:id="@+id/weather"
         android:icon="@drawable/weather_icon"
         android:title="Weather" />

@@ -69,6 +69,8 @@ public class MainActivity2 extends AppCompatActivity {
                 replaceFragment(new HomeFragment());
             } else if (item.getItemId() == R.id.map) {
                 replaceFragment(new MapFragment());
+            } else if (item.getItemId() == R.id.leaderboard) {
+                replaceFragment(new LeaderboardFragment());
             } else if (item.getItemId() == R.id.weather) {
                 replaceFragment(new WeatherFragment());
             } else if (item.getItemId() == R.id.setting) {
@@ -88,6 +90,9 @@ public class MainActivity2 extends AppCompatActivity {
         } else if (fragment != null && fragment.equals("weather")) {
             replaceFragment(new WeatherFragment());
             binding.bottomNavigationView.setSelectedItemId(R.id.weather);
+        } else if (fragment != null && fragment.equals("leaderboard")) {
+            replaceFragment(new LeaderboardFragment());
+            binding.bottomNavigationView.setSelectedItemId(R.id.leaderboard);
         } else {
             replaceFragment(new HomeFragment());  // Default fragment is HomeFragment
             binding.bottomNavigationView.setSelectedItemId(R.id.home);
