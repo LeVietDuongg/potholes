@@ -82,27 +82,41 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp">
 
-            <!-- Welcome Text -->
+            <!-- Welcome Icon + Text -->
+
+            <!--            hiển thị tên username -->
+
+            <!--            hiển thị số lượng pothole và distance đi đc-->
+
+            <ImageView
+                android:id="@+id/vtrack_icon_home"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/vtrackicon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/welcomeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="35dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="24dp"
                 android:text="Welcome"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:fontFamily="@font/montserrat_regular"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vtrack_icon_home"
                 app:layout_constraintTop_toTopOf="parent" />
 
-<!--            hiển thị tên username -->
             <TextView
                 android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="35dp"
+                android:layout_marginStart="172dp"
+                android:layout_marginTop="4dp"
                 android:text="Tên người dùng"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
@@ -111,7 +125,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/welcomeText" />
 
-<!--            hiển thị số lượng pothole và distance đi đc-->
             <FrameLayout
                 android:id="@+id/statsContainerFrame"
                 android:layout_width="match_parent"

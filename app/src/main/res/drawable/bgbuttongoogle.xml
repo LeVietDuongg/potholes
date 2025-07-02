@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true">
+    <item android:state_focused="true">
         <shape>
-            <solid android:color="#1a7a1a" /> <!-- Màu nền mặc định -->
-            <corners android:radius="10dp" /> <!-- Độ bo tròn góc -->
-            <stroke
-                android:width="0.5dp"
-                android:color="#1a7a1a" /> <!-- Màu và độ dày của viền mặc định -->
+            <solid android:color="@android:color/transparent"/>
+            <stroke android:width="2dp" android:color="#3B82F6"/>
+            <corners android:radius="12dp"/>
         </shape>
     </item>
-    <!-- Trạng thái mặc định -->
     <item>
         <shape>
-            <solid android:color="#ffff" /> <!-- Màu nền mặc định -->
-            <corners android:radius="10dp" /> <!-- Độ bo tròn góc -->
-            <stroke
-                android:width="2dp"
-                android:color="#1a7a1a" /> <!-- Màu và độ dày của viền mặc định -->
+            <solid android:color="@android:color/transparent"/>
+            <stroke android:width="2dp" android:color="#3B82F6"/>
+            <corners android:radius="12dp"/>
         </shape>
     </item>
 </selector>

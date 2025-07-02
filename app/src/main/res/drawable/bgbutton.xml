@@ -2,23 +2,21 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true">
         <shape>
-            <shape>
-                <solid android:color="#1a7a1a" /> <!-- Màu nền mặc định -->
-                <corners android:radius="10dp" /> <!-- Độ bo tròn góc -->
-                <stroke
-                    android:width="0.5dp"
-                    android:color="#1a7a1a" /> <!-- Màu và độ dày của viền mặc định -->
-            </shape>
+            <solid android:color="#1E3A8A" /> <!-- Màu xanh đậm khi nhấn -->
+            <corners android:radius="28dp" /> <!-- Độ bo tròn góc -->
+            <stroke
+                android:width="0.5dp"
+                android:color="#1E3A8A" /> <!-- Màu và độ dày của viền -->
         </shape>
     </item>
     <!-- Trạng thái mặc định -->
     <item>
         <shape>
-            <solid android:color="#1a7a1a" /> <!-- Màu nền mặc định -->
-            <corners android:radius="10dp" /> <!-- Độ bo tròn góc -->
+            <solid android:color="#3B82F6" /> <!-- Màu xanh dương -->
+            <corners android:radius="28dp" /> <!-- Độ bo tròn góc -->
             <stroke
                 android:width="0.5dp"
-                android:color="#1a7a1a" /> <!-- Màu và độ dày của viền mặc định -->
+                android:color="#3B82F6" /> <!-- Màu và độ dày của viền -->
         </shape>
     </item>
 </selector>

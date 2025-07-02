@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SignInActivity extends AppCompatActivity {
 
-    private Button btnBack, btnLogin;
+    private Button btnBack, btnLogin, btnGoogleSignIn, btnForgotPassword;
     private EditText edtEmail, edtPassword;
     private FirebaseAuth mAuth;
     private boolean isPasswordVisible = false;
@@ -80,6 +80,11 @@ public class SignInActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+
+        // Tự động click Google Sign-In nếu nhận extra từ MainActivity
+        if (getIntent().getBooleanExtra("google_sign_in", false)) {
+            if (btnGoogleSignIn != null) btnGoogleSignIn.performClick();
+        }
     }
 
     private void initViews() {
@@ -87,7 +92,7 @@ public class SignInActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btn_login);
         edtEmail = findViewById(R.id.edt_email);
         edtPassword = findViewById(R.id.edt_password);
-
+        btnForgotPassword = findViewById(R.id.btn_forgot_password);
         chkRememberMe = findViewById(R.id.ckb_remember);
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
     }
@@ -109,6 +114,12 @@ public class SignInActivity extends AppCompatActivity {
             if (validateEmail(email) && validatePassword(password)) {
                 loginUser(email,password);
             }
+        });
+
+        // Sự kiện nút "Forgot Password"
+        btnForgotPassword.setOnClickListener(v -> {
+            Intent intent = new Intent(SignInActivity.this, ForgotPasswordActivity.class);
+            startActivity(intent);
         });
     }
 

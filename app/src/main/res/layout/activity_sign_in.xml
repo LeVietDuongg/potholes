@@ -9,28 +9,14 @@
     tools:context=".SignInActivity">
 
     <!--    xay logo-->
-    <LinearLayout
-        android:layout_width="275dp"
-        android:gravity="center"
-        android:background="@drawable/bglogo"
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="220dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:src="@drawable/meme"
-            android:scaleType="fitXY"
-            android:adjustViewBounds="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="UIT-PHOMAI"
-            android:textColor="#1a7a1a"
-            android:textStyle="bold"
-            android:textSize="32sp"
-            android:fontFamily="@font/montserrat_semibold"/>
-    </LinearLayout>
+        android:layout_marginTop="80dp"
+        android:src="@drawable/vtrackicon"
+        android:contentDescription="Vtrack icon"
+        android:scaleType="fitCenter"/>
     <!--xay cardview -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -50,9 +36,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SignIn"
+                android:text="Sign In"
                 android:textStyle="bold"
-                android:textColor="#1a7a1a"
+                android:textColor="@color/blue"
                 android:textSize="32sp"
                 android:fontFamily="@font/montserrat_semibold"/>
             <View
@@ -70,7 +56,7 @@
                 android:hint="Please enter your email"/>
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"/>
+                android:layout_height="30dp"/>
             <!--            ========================================================================-->
 
             <EditText
@@ -83,10 +69,31 @@
                 android:inputType="textPassword"
                 android:paddingHorizontal="15dp" />
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <CheckBox
+                    android:id="@+id/ckb_remember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Remember me"
+                    android:button="@drawable/checkbox_selector"
+                    android:layout_centerVertical="true"/>
+                <Button
+                    android:id="@+id/btn_forgot_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I forgot my password"
+                    android:background="@android:color/transparent"
+                    android:textColor="#3B82F6"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"/>
-
+                android:layout_height="10dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,28 +121,6 @@
                     android:textColor="@color/white"
                     android:textStyle="bold" />
             </LinearLayout>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="10dp"/>
-            <!--========================================================================-->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <CheckBox
-                    android:id="@+id/ckb_remember"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Remember me"
-                    android:layout_centerVertical="true"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="I forgot my password"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"/>
-            </RelativeLayout>
-            <!--========================================================================-->
-
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"/>

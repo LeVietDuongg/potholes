@@ -9,28 +9,14 @@
     tools:context=".SignUpActivity">
 
     <!--    xay logo-->
-    <LinearLayout
-        android:layout_width="275dp"
-        android:gravity="center"
-        android:background="@drawable/bglogo"
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="220dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:src="@drawable/meme"
-            android:scaleType="fitXY"
-            android:adjustViewBounds="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="UIT-PHOMAI"
-            android:textColor="#1a7a1a"
-            android:textStyle="bold"
-            android:textSize="32sp"
-            android:fontFamily="@font/montserrat_semibold"/>
-    </LinearLayout>
+        android:layout_marginTop="80dp"
+        android:src="@drawable/vtrackicon"
+        android:contentDescription="Vtrack icon"
+        android:scaleType="fitCenter"/>
     <!--xay cardview -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -50,9 +36,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SignUp"
+                android:text="Sign Up"
                 android:textStyle="bold"
-                android:textColor="#1a7a1a"
+                android:textColor="@color/blue"
                 android:textSize="32sp"
                 android:fontFamily="@font/montserrat_semibold"/>
             <View
@@ -110,7 +96,7 @@
                 android:hint="Please confirm your password"/>
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"/>
+                android:layout_height="30dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -138,9 +124,7 @@
                     android:textColor="@color/white"
                     android:textStyle="bold" />
             </LinearLayout>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"/>
+
             <!--========================================================================-->
 <!--            <RelativeLayout-->
 <!--                android:layout_width="match_parent"-->

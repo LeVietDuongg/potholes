@@ -123,16 +123,16 @@ public class OnboardingActivity extends AppCompatActivity {
         for (int i = 0; i < count; i++) {
             TextView dot = new TextView(this);
             dot.setText("●");
-            dot.setTextSize(24);
+            dot.setTextSize(16);
             dot.setTextColor(Color.LTGRAY);
-            
+
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            params.setMargins(12, 0, 12, 0);
+            params.setMargins(8, 0, 8, 0);
             dot.setLayoutParams(params);
-            
+
             layoutDots.addView(dot);
         }
     }
@@ -142,10 +142,10 @@ public class OnboardingActivity extends AppCompatActivity {
             TextView dot = (TextView) layoutDots.getChildAt(i);
             if (i == index) {
                 dot.setTextColor(Color.WHITE);
-                dot.setTextSize(24);
+                dot.setTextSize(18);
             } else {
                 dot.setTextColor(Color.LTGRAY);
-                dot.setTextSize(24);
+                dot.setTextSize(16);
             }
         }
     }

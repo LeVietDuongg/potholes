@@ -59,7 +59,7 @@
                     android:layout_height="105dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    android:src="@drawable/meme"
+                    android:src="@drawable/vtrackicon"
                     app:layout_constraintBottom_toBottomOf="@+id/vontron"
                     app:layout_constraintEnd_toEndOf="@+id/vontron"
                     app:layout_constraintStart_toStartOf="@+id/vontron"
