@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SignInActivity extends AppCompatActivity {
 
-    private Button btnBack, btnLogin, btnGoogleSignIn, btnForgotPassword;
+    private Button btnBack, btnLogin, btnGoogleSignIn;
+    private TextView btnForgotPassword;
     private EditText edtEmail, edtPassword;
     private FirebaseAuth mAuth;
     private boolean isPasswordVisible = false;
