@@ -190,7 +190,7 @@
                             android:layout_marginTop="40dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="0dp"
-                            app:cardBackgroundColor="#4054F7"
+                            app:cardBackgroundColor="#2135d8"
                             android:onClick="clickmeok">
 
                             <LinearLayout

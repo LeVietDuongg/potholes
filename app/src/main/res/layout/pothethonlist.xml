@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="15dp"
-    android:background="#1a7a1a">
+    android:background="#2196F3">
 
     <!-- Header chào tên username -->
     <TextView
@@ -15,7 +15,8 @@
         android:text="Hello User_name"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:fontFamily="@font/montserrat_regular" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -46,17 +47,19 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:orientation="horizontal"
                         android:background="@drawable/rounded_background"
+                        android:orientation="horizontal"
                         android:paddingBottom="8dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
+                            android:layout_marginVertical="10dp"
                             android:layout_weight="1"
-                            android:text="DISTANCE"
-                            android:textColor="#282323"
+                            android:fontFamily="@font/montserrat_regular"
                             android:gravity="center"
+                            android:text="Distance"
+                            android:textColor="#FFFFFF"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -71,12 +74,12 @@
                             android:id="@+id/potholeListTextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/rounded_background"
+                            android:fontFamily="@font/montserrat_regular"
                             android:lineSpacingExtra="4dp"
                             android:padding="10dp"
                             android:text="Pothole detected:"
-                            android:textColor="#333"
-                            android:textSize="18sp" />
+                            android:textColor="#111111"
+                            android:textSize="16sp" />
                     </ScrollView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -96,49 +99,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="start"
-                android:padding="8dp"
-                android:text="Severity level"
-                android:textStyle="bold"
-                android:textColor="#662c1b"
-                android:textSize="24sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingHorizontal="15dp">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:background="#daf4ff"
-                    android:text="Light"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="10dp"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:background="#f89b28"
-                    android:text="Medium"
-                    android:layout_weight="1"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:background="#ff7973"
-                    android:text="Hard"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1"
-                    android:gravity="center" />
-            </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -149,6 +109,80 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
+                <!-- Moved Severity level header here -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/rounded_background"
+                    android:paddingBottom="8dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Severity level"
+                        android:layout_marginVertical="10dp"
+                        android:textColor="#FFFFFF"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/montserrat_regular" />
+                </LinearLayout>
+
+                <!-- Add back Light, Medium, Hard labels with marginTop -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="15dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:background="#daf4ff"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:text="Light"
+                        android:textColor="#111111"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="#f89b28"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:text="Medium"
+                        android:textColor="#111111"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="#ff7973"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:text="Hard"
+                        android:textColor="#111111"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Divider below level labels -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:background="#d3d3d3" />
 
                 <com.github.mikephil.charting.charts.PieChart
                     android:id="@+id/pie_chart"

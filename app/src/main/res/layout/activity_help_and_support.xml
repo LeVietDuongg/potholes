@@ -25,7 +25,7 @@
             android:layout_gravity="bottom"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/montserrat_medium"
             android:layout_marginBottom="15dp"
             android:text="Help and Support" />
     </androidx.cardview.widget.CardView>
@@ -41,7 +41,7 @@
         android:text="How Can We Help You?"
         android:textSize="16sp"
         android:textColor="#000000"
-        android:fontFamily="sans-serif" />
+        android:fontFamily="@font/montserrat_regular" />
 
     <!-- Search Bar -->
     <LinearLayout
@@ -65,7 +65,8 @@
             android:paddingHorizontal="15dp"
             android:drawableEnd="@drawable/smile_icon"
             android:paddingTop="15dp"
-            android:paddingBottom="15dp"/>
+            android:paddingBottom="15dp"
+            android:fontFamily="@font/montserrat_medium" />
 
         <ImageView
             android:id="@+id/icon_search"
@@ -90,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/montserrat_medium"
             android:padding="8dp"
             android:text="How do I manage my notifications?"
             android:textSize="18sp" />
@@ -100,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/montserrat_medium"
             android:padding="8dp"
             android:text="How do I join a support group?"
             android:textSize="18sp" />
@@ -110,7 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/montserrat_medium"
             android:padding="8dp"
             android:text="Is my data safe and private?"
             android:textSize="18sp" />
@@ -120,7 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/montserrat_medium"
             android:padding="8dp"
             android:text="How can I mark the location of a pothole?"
             android:textSize="18sp" />

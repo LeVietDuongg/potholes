@@ -79,7 +79,8 @@
             android:paddingHorizontal="15dp"
             android:drawableEnd="@drawable/smile_icon"
             android:paddingTop="15dp"
-            android:paddingBottom="15dp"/>
+            android:paddingBottom="15dp"
+            android:fontFamily="@font/montserrat_regular"/>
 
         <View
             android:layout_width="wrap_content"
@@ -97,7 +98,8 @@
             android:paddingHorizontal="15dp"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:drawableEnd="@drawable/email_icon"/>
+            android:drawableEnd="@drawable/email_icon"
+            android:fontFamily="@font/montserrat_regular"/>
 
         <View
             android:layout_width="wrap_content"
@@ -116,7 +118,8 @@
             android:paddingHorizontal="15dp"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:drawableEnd="@drawable/password_icon"/>
+            android:drawableEnd="@drawable/password_icon"
+            android:fontFamily="@font/montserrat_regular"/>
         <View
             android:layout_width="wrap_content"
             android:layout_height="20dp"/>

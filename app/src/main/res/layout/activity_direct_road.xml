@@ -29,7 +29,8 @@ tools:context=".MapFragment">
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Enter location"
-            android:background="@android:drawable/edit_text"/>
+            android:background="@android:drawable/edit_text"
+            android:fontFamily="@font/montserrat_regular"/>
 
     </LinearLayout>
     <TextView
@@ -40,7 +41,7 @@ tools:context=".MapFragment">
         android:layout_marginTop="110dp"
         android:textSize="30dp"
         android:paddingHorizontal="15dp"
-        />
+        android:fontFamily="@font/montserrat_semibold"/>
 
     <LinearLayout
         android:id="@+id/destination_container"
@@ -56,7 +57,8 @@ tools:context=".MapFragment">
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Enter destination"
-            android:background="@android:drawable/edit_text"/>
+            android:background="@android:drawable/edit_text"
+            android:fontFamily="@font/montserrat_regular"/>
     </LinearLayout>
 
     <Button
@@ -65,7 +67,8 @@ tools:context=".MapFragment">
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:layout_marginStart="140dp"
-        android:text="Search" />
+        android:text="Search"
+        android:fontFamily="@font/montserrat_semibold"/>
 
 </androidx.cardview.widget.CardView>
 

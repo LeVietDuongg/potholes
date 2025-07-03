@@ -25,7 +25,7 @@
             android:layout_gravity="bottom"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/montserrat_medium"
             android:layout_marginBottom="15dp"
             android:text="Report Problem" />
     </androidx.cardview.widget.CardView>

@@ -53,7 +53,8 @@
                 android:background="@drawable/bgbuttongoogle"
                 android:paddingHorizontal="15dp"
                 android:drawableEnd="@drawable/email_icon"
-                android:hint="Please enter your email"/>
+                android:hint="Please enter your email"
+                android:fontFamily="@font/montserrat_regular"/>
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"/>
@@ -67,7 +68,8 @@
                 android:drawableEnd="@drawable/password_icon"
                 android:hint="Please enter your password"
                 android:inputType="textPassword"
-                android:paddingHorizontal="15dp" />
+                android:paddingHorizontal="15dp"
+                android:fontFamily="@font/montserrat_regular" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -78,7 +80,8 @@
                     android:layout_height="wrap_content"
                     android:text=" Remember me"
                     android:button="@drawable/checkbox_selector"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/montserrat_regular"/>
                 <Button
                     android:id="@+id/btn_forgot_password"
                     android:layout_width="wrap_content"
