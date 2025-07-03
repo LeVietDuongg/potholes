@@ -1,104 +1,123 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgroad"
     tools:context=".MainActivity">
 
-<!--    xay logo-->
     <ImageView
-        android:layout_width="320dp"
-        android:layout_height="320dp"
+        android:id="@+id/bg_image"
+        android:layout_width="441dp"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Logo -->
+    <ImageView
+        android:layout_width="156dp"
+        android:layout_height="144dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        android:src="@drawable/vtrackicon"
         android:contentDescription="Vtrack icon"
-        android:scaleType="fitCenter"/>
-<!--xay cardview -->
+        android:scaleType="fitCenter"
+        android:src="@drawable/vtrackicon" />
+
+    <!-- CardView -->
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:backgroundTint="#FFFFFF"
         app:cardCornerRadius="28dp"
-        android:layout_marginBottom="-20dp"
-        android:id="@+id/card_view"        >
+        app:cardElevation="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
-<!--            ========================================================================-->
+            android:padding="28dp">
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign In"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:textSize="24sp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_gravity="center_horizontal" />
+
+            <View android:layout_width="match_parent" android:layout_height="20dp" />
+
+            <!-- Sign In Button -->
             <Button
                 android:id="@+id/btn_signin"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="56dp"
                 android:text="Sign In"
-                android:textColor="@color/white"
+                android:textColor="@android:color/white"
                 android:textStyle="bold"
                 android:fontFamily="@font/montserrat_semibold"
-                android:background="@drawable/bgbutton"/>
-            <View
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"/>
-<!--            ========================================================================-->
+                android:background="@drawable/bgbutton" />
+
+            <View android:layout_width="match_parent" android:layout_height="14dp" />
+
+            <!-- Sign Up Button -->
             <Button
                 android:id="@+id/btn_signup"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="56dp"
                 android:text="Sign Up"
-                android:textColor="@color/white"
+                android:textColor="@android:color/white"
                 android:textStyle="bold"
                 android:fontFamily="@font/montserrat_semibold"
-                android:background="@drawable/bgbutton"/>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"/>
+                android:background="@drawable/bgbutton" />
 
-            <!--========================================================================-->
+            <View android:layout_width="match_parent" android:layout_height="20dp" />
 
+            <!-- Google Sign In -->
             <LinearLayout
                 android:id="@+id/btn_google_sign_in_container"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="56dp"
                 android:orientation="horizontal"
-                android:background="@drawable/bg_google_red"
-                android:gravity="center_vertical"
+                android:background="@drawable/bg_google_modern"
+                android:gravity="center"
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
                 <ImageView
                     android:id="@+id/iv_google_icon"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/googleicon"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="12dp"
-                    android:contentDescription="Google icon" />
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="Google icon"
+                    android:scaleType="fitCenter" />
 
                 <TextView
                     android:id="@+id/tv_google_sign_in"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:gravity="center"
-                    android:layout_marginRight="40dp"
-                    android:text="SIGN IN WITH GOOGLE"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_marginEnd="16dp" />
+                    android:text="Sign In with Google"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/montserrat_medium" />
             </LinearLayout>
-
-            <View
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
+</FrameLayout>
