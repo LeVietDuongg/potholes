@@ -1,195 +1,134 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="15dp"
-    android:background="#2196F3">
+    android:background="@color/blue"
+    android:orientation="vertical"
+    android:padding="20dp">
 
-    <!-- Header chào tên username -->
+    <!-- Header -->
     <TextView
         android:id="@+id/user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="18dp"
         android:text="Hello User_name"
+        android:textColor="@android:color/white"
+        android:textSize="26sp"
         android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:fontFamily="@font/montserrat_regular" />
+        android:gravity="center"
+        android:fontFamily="@font/montserrat_semibold"
+        android:layout_marginBottom="20dp" />
 
-    <androidx.core.widget.NestedScrollView
+    <!-- Distance Card -->
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/user_name"
-        android:layout_above="@+id/card_view2"
-        android:fillViewport="true">
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="6dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_view1"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distance"
+                android:paddingVertical="6dp"
+                android:paddingHorizontal="24dp"
+                android:background="@drawable/rounded_header_bg"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/potholeListTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardCornerRadius="15dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <!-- Tiêu đề bảng -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@drawable/rounded_background"
-                        android:orientation="horizontal"
-                        android:paddingBottom="8dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginVertical="10dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:gravity="center"
-                            android:text="Distance"
-                            android:textColor="#FFFFFF"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <!-- Danh sách potholes -->
-                    <ScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_marginTop="10dp">
-
-                        <TextView
-                            android:id="@+id/potholeListTextView"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:lineSpacingExtra="4dp"
-                            android:padding="10dp"
-                            android:text="Pothole detected:"
-                            android:textColor="#111111"
-                            android:textSize="16sp" />
-                    </ScrollView>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                android:text="1. Google Building 43, 43 Amphitheatre Pkwy, Mountain View, CA 94043, USA - 0.00 km"
+                android:textColor="#111111"
+                android:textSize="14sp"
+                android:fontFamily="@font/montserrat_regular" />
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </androidx.cardview.widget.CardView>
 
+    <!-- Severity Level Card -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view2"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="10dp"
-        app:cardCornerRadius="15dp">
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="6dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="10dp"
-                android:background="#d3d3d3" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Severity level"
+                android:paddingVertical="6dp"
+                android:paddingHorizontal="24dp"
+                android:background="@drawable/rounded_header_bg"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_marginBottom="16dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="12dp">
 
-                <!-- Moved Severity level header here -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:background="@drawable/rounded_background"
-                    android:paddingBottom="8dp"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginBottom="5dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="#DAF4FF"
+                    android:text="Light"
+                    android:textColor="#111111"
+                    android:gravity="center"
+                    android:fontFamily="@font/montserrat_semibold" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="Severity level"
-                        android:layout_marginVertical="10dp"
-                        android:textColor="#FFFFFF"
-                        android:gravity="center"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/montserrat_regular" />
-                </LinearLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="8dp"
+                    android:background="#FFA726"
+                    android:text="Medium"
+                    android:textColor="#111111"
+                    android:gravity="center"
+                    android:fontFamily="@font/montserrat_semibold" />
 
-                <!-- Add back Light, Medium, Hard labels with marginTop -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="15dp"
-                    android:layout_marginTop="10dp">
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_weight="1"
-                        android:background="#daf4ff"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:gravity="center"
-                        android:text="Light"
-                        android:textColor="#111111"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="#f89b28"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:gravity="center"
-                        android:text="Medium"
-                        android:textColor="#111111"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_weight="1"
-                        android:background="#ff7973"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:gravity="center"
-                        android:text="Hard"
-                        android:textColor="#111111"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <!-- Divider below level labels -->
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_margin="10dp"
-                    android:background="#d3d3d3" />
-
-                <com.github.mikephil.charting.charts.PieChart
-                    android:id="@+id/pie_chart"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="#FF8A80"
+                    android:text="Hard"
+                    android:textColor="#111111"
+                    android:gravity="center"
+                    android:fontFamily="@font/montserrat_semibold" />
             </LinearLayout>
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pie_chart"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_gravity="center" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-</RelativeLayout>
+
+</LinearLayout>
