@@ -25,4 +25,5 @@
     <string name="account_actions">Account Actions</string>
     <string name="logout">Logout</string>
     <string name="logout_success">Logout successful</string>
+    <string name="default_web_client_id">887282655078-tdpe59v9vool48ddgdtvu2u8667u23pg.apps.googleusercontent.com</string>
 </resources>

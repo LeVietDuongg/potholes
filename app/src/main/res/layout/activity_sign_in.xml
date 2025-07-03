@@ -207,7 +207,7 @@
                         android:layout_height="30dp"
                         android:contentDescription="Google logo"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/google_logo" />
+                        android:src="@drawable/googleicon" />
 
                     <TextView
                         android:layout_width="wrap_content"
