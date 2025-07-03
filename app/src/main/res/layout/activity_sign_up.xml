@@ -65,7 +65,7 @@
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="Sign Up"
-                    android:textColor="#2C7A7B"
+                    android:textColor="@color/blue"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
