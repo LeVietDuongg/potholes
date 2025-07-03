@@ -1,133 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgroad"
     tools:context=".SignInActivity">
 
-    <!--    xay logo-->
+    <!-- Background -->
     <ImageView
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:src="@drawable/vtrackicon"
-        android:contentDescription="Vtrack icon"
-        android:scaleType="fitCenter"/>
-    <!--xay cardview -->
-    <androidx.cardview.widget.CardView
+        android:id="@+id/bg_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:cardCornerRadius="28dp"
-        android:layout_marginBottom="-20dp"
-        android:id="@+id/card_view"        >
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg" />
 
+    <!-- Foreground content -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-
+        <!-- Logo -->
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:contentDescription="Vtrack logo"
+                android:scaleType="fitCenter"
+                android:src="@drawable/vtrackicon" />
+        </LinearLayout>
+
+        <!-- CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="28dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sign In"
-                android:textStyle="bold"
-                android:textColor="@color/blue"
-                android:textSize="32sp"
-                android:fontFamily="@font/montserrat_semibold"/>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"/>
-            <!--            ========================================================================-->
-            <EditText
-                android:id="@+id/edt_email"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:inputType="textEmailAddress"
-                android:background="@drawable/bgbuttongoogle"
-                android:paddingHorizontal="15dp"
-                android:drawableEnd="@drawable/email_icon"
-                android:hint="Please enter your email"
-                android:fontFamily="@font/montserrat_regular"/>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"/>
-            <!--            ========================================================================-->
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:backgroundTint="#FFFFFF"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="8dp">
 
-            <EditText
-                android:id="@+id/edt_password"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/bgbuttongoogle"
-                android:drawableEnd="@drawable/password_icon"
-                android:hint="Please enter your password"
-                android:inputType="textPassword"
-                android:paddingHorizontal="15dp"
-                android:fontFamily="@font/montserrat_regular" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <CheckBox
-                    android:id="@+id/ckb_remember"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" Remember me"
-                    android:button="@drawable/checkbox_selector"
-                    android:layout_centerVertical="true"
-                    android:fontFamily="@font/montserrat_regular"/>
-                <Button
-                    android:id="@+id/btn_forgot_password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="I forgot my password"
-                    android:background="@android:color/transparent"
-                    android:textColor="#3B82F6"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"/>
-            </RelativeLayout>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="10dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/btn_back"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="Back"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:textColor="@color/white"
-                    android:background="@drawable/bgbutton"/>
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"/>
-                <Button
-                    android:id="@+id/btn_login"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bgbutton"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="Login"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
-            </LinearLayout>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                android:orientation="vertical"
+                android:paddingStart="24dp"
+                android:paddingTop="28dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="24dp">
 
-</RelativeLayout>
+                <!-- Title -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Sign In"
+                    android:textColor="@color/blue"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
+
+                <!-- Email -->
+                <EditText
+                    android:id="@+id/edt_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_input_modern"
+                    android:drawableEnd="@drawable/email_icon"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="16dp"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp" />
+
+                <!-- Password -->
+                <EditText
+                    android:id="@+id/edt_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_input_modern"
+                    android:drawableEnd="@drawable/password_icon"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:paddingHorizontal="16dp"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp" />
+
+                <!-- Remember + Forgot -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/ckb_remember"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/checkbox_selector"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text=" Remember me"
+                        android:textColor="#000000"
+                        android:textSize="13sp" />
+
+                    <Button
+                        android:id="@+id/btn_forgot_password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="I forgot my password"
+                        android:textColor="#3B82F6"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
+
+                <!-- Buttons: Back & Login -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_back"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bgbutton"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="Back"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="16dp"
+                        android:layout_height="0dp" />
+
+                    <Button
+                        android:id="@+id/btn_login"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bgbutton"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="Login"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
+
+                <!-- Sign In with Google -->
+                <LinearLayout
+                    android:id="@+id/btn_google_signin"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_google_modern"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:contentDescription="Google logo"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/google_logo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="Sign In with Google"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</FrameLayout>
