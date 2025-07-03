@@ -1,132 +1,202 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SettingFragment">
 
-    <ScrollView
+    <!-- Nền -->
+    <ImageView
+        android:id="@+id/bg_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:src="@drawable/bg"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null" />
+
+    <!-- Nội dung chính -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/vtrackicon"
+            android:contentDescription="@null" />
+
+        <!-- Scroll nội dung -->
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="24dp">
 
-            <!-- Profile Section -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/account"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#2196F3"
-                android:layout_marginBottom="8dp"/>
-
-            <TextView
-                android:id="@+id/tv_edit_profile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/edit_profile"
-                android:textSize="16sp"
-                android:padding="12dp"
-                android:background="@drawable/bgbuttongoogle"
-                android:drawableStart="@drawable/persion_icon"
-                android:drawablePadding="16dp"
-                android:layout_marginBottom="12dp"/>
-
-            <!-- Language Section -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/language"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#2196F3"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"/>
-                
             <LinearLayout
-                android:id="@+id/language_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/bgbuttongoogle"
-                android:padding="12dp"
-                android:layout_marginBottom="12dp">
-                
-                <RadioGroup
-                    android:id="@+id/language_radio_group"
+                android:orientation="vertical">
+
+                <!-- Account -->
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    
-                    <RadioButton
-                        android:id="@+id/radio_english"
+                    android:text="Account"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bgbuttongoogle"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/persion_icon"
+                        android:layout_marginEnd="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_edit_profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/english"
-                        android:padding="8dp"
-                        android:checked="true"/>
-                        
-                    <RadioButton
-                        android:id="@+id/radio_vietnamese"
+                        android:text="Edit Profile"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/montserrat_regular" />
+                </LinearLayout>
+
+                <!-- Language -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Language"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp">
+
+                    <RadioGroup
+                        android:id="@+id/language_radio_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <RadioButton
+                            android:id="@+id/radio_english"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="English"
+                            android:paddingVertical="8dp"
+                            android:checked="true" />
+
+                        <RadioButton
+                            android:id="@+id/radio_vietnamese"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vietnamese"
+                            android:paddingVertical="8dp" />
+                    </RadioGroup>
+                </androidx.cardview.widget.CardView>
+
+                <!-- App Settings -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="App Settings"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bgbuttongoogle"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/privacy_icon"
+                        android:layout_marginEnd="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_policies"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/vietnamese"
-                        android:padding="8dp"/>
-                </RadioGroup>
+                        android:text="Policies"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/montserrat_regular" />
+                </LinearLayout>
+
+                <!-- Account Actions -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Account Actions"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bgbuttongoogle"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/logout_icon"
+                        android:layout_marginEnd="16dp" />
+
+                    <TextView
+                        android:id="@+id/txt_logout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Logout"
+                        android:textColor="#FF0000"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/montserrat_regular" />
+                </LinearLayout>
+
             </LinearLayout>
-
-            <!-- App Settings Section -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/app_settings"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#2196F3"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"/>
-
-            <TextView
-                android:id="@+id/tv_policies"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/policies"
-                android:textSize="16sp"
-                android:padding="12dp"
-                android:background="@drawable/bgbuttongoogle"
-                android:drawableStart="@drawable/privacy_icon"
-                android:drawablePadding="16dp"
-                android:layout_marginBottom="12dp"/>
-
-            <!-- Account Actions Section -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/account_actions"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#2196F3"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"/>
-
-            <TextView
-                android:id="@+id/txt_logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/logout"
-                android:textSize="16sp"
-                android:textColor="#FF0000"
-                android:padding="12dp"
-                android:background="@drawable/bgbuttongoogle"
-                android:drawableStart="@drawable/logout_icon"
-                android:drawablePadding="16dp"/>
-
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </LinearLayout>
 </FrameLayout>
