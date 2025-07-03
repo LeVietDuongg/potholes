@@ -1,47 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_background"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/bg_image"
+        android:layout_width="441dp"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg" />
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".WeatherFragment">
 
-    <!-- Decorative Wave 1 -->
-    <View
-        android:id="@+id/decorativeWave1"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="@drawable/wave_shape"
-        android:alpha="0.6"
-        android:layout_marginTop="-50dp"
-        android:layout_marginEnd="330dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Decorative Wave 2 -->
-    <View
-        android:id="@+id/decorativeWave2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/wave_shape"
-        android:alpha="0.4"
-        android:layout_marginBottom="80dp"
-        android:layout_marginStart="-10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- Decorative dots -->
-    <View
-        android:id="@+id/decorativeDot6"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="@drawable/dot_light_blue"
-        android:alpha="0.9"
-        android:layout_marginBottom="560dp"
-        android:layout_marginStart="350dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -62,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Weather"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:layout_marginTop="30dp"
@@ -77,10 +54,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Binh Duong, Vietnam"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/blue"
                 android:textSize="16sp"
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="20dp"
+                android:textStyle="bold"
                 app:fontFamily="@font/montserrat_regular"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/titleText" />
@@ -769,4 +747,5 @@
                 android:textSize="12sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout> 
+</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
