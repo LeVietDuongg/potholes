@@ -46,7 +46,7 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar", "*.jar"), "exclude" to listOf("*mock*.jar"))))
     implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("com.google.firebase:firebase-auth:23.1.0")
+    implementation("com.google.firebase:firebase-auth:23.2.1")
     implementation("com.google.firebase:firebase-database:21.0.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.1")
     implementation("com.google.android.gms:play-services-location:21.0.1")
