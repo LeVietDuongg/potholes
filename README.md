@@ -1,4 +1,4 @@
-# Phát Hiện Ổ Gà
+﻿# Phát Hiện Ổ Gà
 
 Ứng dụng Android giúp phát hiện, báo cáo và chia sẻ vị trí các ổ gà trên đường, hỗ trợ cộng đồng lái xe an toàn hơn.
 

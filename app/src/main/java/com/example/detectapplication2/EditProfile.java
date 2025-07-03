@@ -38,7 +38,7 @@ public class EditProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edt_profile);
+        setContentView(R.layout.activity_edit_profile);
 
         btnSave = findViewById(R.id.btn_save);
         btnBack = findViewById(R.id.btn_back);
