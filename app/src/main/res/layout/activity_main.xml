@@ -84,38 +84,6 @@
 
             <View android:layout_width="match_parent" android:layout_height="20dp" />
 
-            <!-- Google Sign In -->
-            <LinearLayout
-                android:id="@+id/btn_google_sign_in_container"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:orientation="horizontal"
-                android:background="@drawable/bg_google_modern"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
-
-                <ImageView
-                    android:id="@+id/iv_google_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/googleicon"
-                    android:layout_marginEnd="8dp"
-                    android:contentDescription="Google icon"
-                    android:scaleType="fitCenter" />
-
-                <TextView
-                    android:id="@+id/tv_google_sign_in"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sign In with Google"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/montserrat_medium" />
-            </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
