@@ -21,7 +21,7 @@ public class Security extends AppCompatActivity {
         changepassword = findViewById(R.id.tv_change_password_in_security);
 
         changepassword.setOnClickListener(v -> {
-            Intent intent = new Intent(Security.this, EditProfile.class);
+            Intent intent = new Intent(Security.this, Profile.class);
             startActivity(intent);
             finish();
         });

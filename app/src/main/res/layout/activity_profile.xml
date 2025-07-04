@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/bg_image"
         android:layout_width="match_parent"
-        android:layout_height="792dp"
+        android:layout_height="992dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:src="@drawable/bg" />
